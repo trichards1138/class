@@ -45,7 +45,7 @@ inline int CircularBufferDeque(CircularBuffer* que, KeyType* pK)
         return -1;   //indicate error cond
     else {
         *pK = que->keys[que->readPointer++];
-        que->readPointer &= KEYMASK;
+        que->readPointer &= KEYMASK;	//wrap if necessary
         return --que->size; //return new size if successful
     }
 }
